@@ -1,13 +1,368 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Purple Penguin Properties LLC — Safe, affordable, and reliable housing in West Valley City, Utah" />
+    <meta name="author" content="kentknowsme" />
+    <meta name="theme-color" content="#671B8D" />
+    <title>Purple Penguin Properties LLC</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.bunny.net/css?family=varela-round:400" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,600,700,800,900" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Accessibility: skip nav -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="app">
+
+        <!-- ===================== NAVBAR ===================== -->
+        <nav class="navbar navbar-expand-lg" :class="{ scrolled: isScrolled }" id="mainNav" aria-label="Main navigation">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#cover">
+                    <!-- CSS filter in styles.css inverts logo to white on dark hero -->
+                    <img src="./ppp-clear.png"
+                         class="nav-logo"
+                         alt="Purple Penguin Properties logo — a purple penguin holding a house"
+                         width="46" height="46">
+                    <span>Purple Penguin Properties LLC</span>
+                </a>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    Menu <i class="fa fa-bars ms-1" aria-hidden="true"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               :class="{ active: activeSection === 'cover' }"
+                               :aria-current="activeSection === 'cover' ? 'page' : false"
+                               href="#cover">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               :class="{ active: activeSection === 'mission' }"
+                               :aria-current="activeSection === 'mission' ? 'page' : false"
+                               href="#mission">Mission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               :class="{ active: activeSection === 'about' }"
+                               :aria-current="activeSection === 'about' ? 'page' : false"
+                               href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               :class="{ active: activeSection === 'contact' }"
+                               :aria-current="activeSection === 'contact' ? 'page' : false"
+                               href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ===================== HERO / MASTHEAD ===================== -->
+        <header id="cover" class="masthead" aria-labelledby="hero-heading">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="text-center">
+                    <h1 id="hero-heading" class="mx-auto my-0 text-uppercase">Purple Penguin Properties LLC</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                        A rental property company focused on providing safe, affordable, and reliable housing
+                    </h2>
+                    <button class="btn btn-primary" @click="scrollToSection('mission')">
+                        Our Mission <i class="fa fa-arrow-down ms-2" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===================== MAIN ===================== -->
+        <main id="main-content">
+
+            <!-- ---- MISSION ---- -->
+            <section id="mission" class="mission-section text-center" aria-labelledby="mission-heading">
+                <div class="container px-4 px-lg-5">
+
+                    <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                        <div class="col-lg-8 fade-in">
+                            <h2 id="mission-heading" class="section-title">Our Mission</h2>
+                            <p class="text-white-75">
+                                To provide safe, affordable, and reliable housing for tenants, ensuring
+                                quality living conditions, a stable rental experience, and long-term
+                                business sustainability.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                        <div class="col-lg-8 fade-in">
+                            <h2 class="section-title">Business Model</h2>
+                            <p class="text-white-75">
+                                Purple Penguin Properties LLC will acquire and rent out single-family homes
+                                and/or small multi-family properties. The business will manage the properties,
+                                ensuring they meet the required health, safety, and housing standards. PPP is
+                                willing to explore and participate in state and federal assistance programs,
+                                such as the Housing Choice Voucher program (Section&nbsp;8).
+                            </p>
+                        </div>
+                    </div>
+
+                    <img class="img-fluid fade-in rounded"
+                         src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"
+                         alt="Charming house exterior with white walls and lush green plants"
+                         loading="lazy" />
+
+                    <div class="text-center mt-5">
+                        <button class="btn btn-primary" @click="scrollToSection('about')">
+                            About Us <i class="fa fa-arrow-down ms-2" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ---- ABOUT ---- -->
+            <section id="about" class="about-section bg-light" aria-labelledby="about-heading">
+                <div class="container px-4 px-lg-5">
+
+                    <h2 id="about-heading" class="section-title text-center mb-5 fade-in">Meet the Team</h2>
+
+                    <!-- Owner: image LEFT, text RIGHT -->
+                    <div class="row gx-0 mb-4 mb-lg-5 align-items-center team-item">
+                        <div class="col-xl-8 col-lg-7">
+                            <img class="img-fluid mb-3 mb-lg-0"
+                                 src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&q=80"
+                                 alt="Foggy mountainside covered in evergreen trees"
+                                 loading="lazy" />
+                        </div>
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="featured-text featured-left text-center text-lg-start">
+                                <h4>Owner</h4>
+                                <p class="text-black-70 mb-0">
+                                    Sole proprietor and owner of Purple Penguin Properties LLC.
+                                    Nothing happens without the direction or approval from the owner!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Manager: text LEFT, image RIGHT — FIX: order-lg swapped -->
+                    <div class="row gx-0 mb-4 mb-lg-5 align-items-center team-item">
+                        <div class="col-xl-4 col-lg-5 order-lg-1">
+                            <div class="featured-text featured-right text-center text-lg-end">
+                                <h4>Manager</h4>
+                                <p class="text-black-70 mb-0">
+                                    Manager of the business and properties. The manager is handy and
+                                    provides customer service and support to our clients.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-7 order-lg-2">
+                            <img class="img-fluid mb-3 mb-lg-0"
+                                 src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80"
+                                 alt="Scenic path leading to a sunny beach"
+                                 loading="lazy" />
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button class="btn btn-primary" @click="scrollToSection('contact')">
+                            Contact Us <i class="fa fa-arrow-down ms-2" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ---- CONTACT ---- -->
+            <section id="contact" class="contact-section bg-black" aria-labelledby="contact-heading">
+                <div class="container px-4 px-lg-5">
+
+                    <h2 id="contact-heading" class="section-title text-center mb-5 fade-in">Get In Touch</h2>
+
+                    <!-- Info Cards -->
+                    <div class="row gx-4 gx-lg-5 mb-5">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="card py-4 h-100 fade-in">
+                                <div class="card-body text-center">
+                                    <i class="fa fa-map-marker text-primary mb-2 card-icon" aria-hidden="true"></i>
+                                    <h4 class="text-uppercase m-0">Markets Served</h4>
+                                    <hr class="my-4 mx-auto" />
+                                    <div class="small text-black-70">West Valley City, Utah</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="card py-4 h-100 fade-in">
+                                <div class="card-body text-center">
+                                    <i class="fa fa-envelope text-primary mb-2 card-icon" aria-hidden="true"></i>
+                                    <h4 class="text-uppercase m-0">Email</h4>
+                                    <hr class="my-4 mx-auto" />
+                                    <div class="small text-black-70">
+                                        <a href="mailto:manager@purplepenguin.pro">manager@purplepenguin.pro</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="card py-4 h-100 fade-in">
+                                <div class="card-body text-center">
+                                    <i class="fa fa-phone text-primary mb-2 card-icon" aria-hidden="true"></i>
+                                    <h4 class="text-uppercase m-0">Phone</h4>
+                                    <hr class="my-4 mx-auto" />
+                                    <div class="small text-black-70">
+                                        <a href="tel:+13854142779">+1 (385) 414-2779</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <form class="contact-form fade-in"
+                                  @submit.prevent="submitForm"
+                                  novalidate
+                                  aria-label="Contact form">
+
+                                <p class="text-white-75 small mb-3">
+                                    Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.
+                                </p>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactName">
+                                            Name <span class="req-mark" aria-hidden="true">*</span>
+                                        </label>
+                                        <input type="text"
+                                               id="contactName"
+                                               class="form-control"
+                                               :class="{ 'is-invalid': errors.name }"
+                                               v-model="form.name"
+                                               placeholder="Your Name"
+                                               required
+                                               aria-required="true"
+                                               aria-describedby="nameError"
+                                               autocomplete="name" />
+                                        <div id="nameError" class="invalid-feedback" role="alert">{{ errors.name }}</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactEmail">
+                                            Email <span class="req-mark" aria-hidden="true">*</span>
+                                        </label>
+                                        <input type="email"
+                                               id="contactEmail"
+                                               class="form-control"
+                                               :class="{ 'is-invalid': errors.email }"
+                                               v-model="form.email"
+                                               placeholder="your@email.com"
+                                               required
+                                               aria-required="true"
+                                               aria-describedby="emailError"
+                                               autocomplete="email" />
+                                        <div id="emailError" class="invalid-feedback" role="alert">{{ errors.email }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="contactSubject">
+                                        Subject <span class="req-mark" aria-hidden="true">*</span>
+                                    </label>
+                                    <input type="text"
+                                           id="contactSubject"
+                                           class="form-control"
+                                           :class="{ 'is-invalid': errors.subject }"
+                                           v-model="form.subject"
+                                           placeholder="Subject"
+                                           required
+                                           aria-required="true"
+                                           aria-describedby="subjectError" />
+                                    <div id="subjectError" class="invalid-feedback" role="alert">{{ errors.subject }}</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="contactMessage">
+                                        Message <span class="req-mark" aria-hidden="true">*</span>
+                                    </label>
+                                    <textarea id="contactMessage"
+                                              class="form-control"
+                                              :class="{ 'is-invalid': errors.message }"
+                                              v-model="form.message"
+                                              rows="5"
+                                              placeholder="Your Message"
+                                              required
+                                              aria-required="true"
+                                              aria-describedby="messageError"></textarea>
+                                    <div id="messageError" class="invalid-feedback" role="alert">{{ errors.message }}</div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary" :disabled="submitting">
+                                        <span v-if="!submitting">
+                                            Send Message <i class="fa fa-paper-plane ms-2" aria-hidden="true"></i>
+                                        </span>
+                                        <span v-else>
+                                            Sending… <i class="fa fa-spinner fa-spin ms-2" aria-hidden="true"></i>
+                                        </span>
+                                    </button>
+                                </div>
+
+                                <div v-if="submitMessage"
+                                     id="submitAlert"
+                                     class="alert mt-3"
+                                     :class="submitSuccess ? 'alert-success' : 'alert-danger'"
+                                     role="alert"
+                                     aria-live="polite"
+                                     tabindex="-1">
+                                    {{ submitMessage }}
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main><!-- /#main-content -->
+
+        <!-- ===================== FOOTER ===================== -->
+        <footer class="footer bg-black small text-center text-white-75">
+            <div class="container px-4 px-lg-5">
+                <p class="mb-1">
+                    Copyright &copy; {{ currentYear }}
+                    <a href="#">Purple Penguin Properties LLC</a>, DBA: PPP
+                </p>
+                <p class="mb-0">
+                    website design by <a href="https://github.com/kentknowsme" target="_blank" rel="noopener">kentknowsme</a>
+                    &nbsp;|&nbsp; images by various artists on <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">unsplash.com</a>
+                    &nbsp;|&nbsp; logo by <a href="#">Adrian Young</a>
+                </p>
+            </div>
+        </footer>
+
+        <!-- ===================== BACK TO TOP ===================== -->
+        <button class="home-button"
+                :class="{ visible: showHomeButton }"
+                @click="scrollToTop"
+                aria-label="Back to top">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+        </button>
+
+    </div><!-- /#app -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.prod.min.js"></script>
+    <script src="./scripts.js"></script>
+</body>
 </html>
