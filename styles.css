@@ -374,34 +374,34 @@ section { position: relative; }
     margin-bottom: 0.75rem;
 }
 
-/* ---- Contact section -------------------------------------- */
-.contact-section {
-    padding: 8rem 0 5rem;
-    background-color: var(--ppp-black);
-}
-
-.contact-section .section-title { color: var(--ppp-purple-light); }
-
 /* Info cards */
-.contact-section .card {
-    border: 0;
-    border-bottom: 4px solid var(--ppp-purple);
-    border-radius: 4px;
+.about-section .card {
+    border: 2px solid var(--ppp-purple);
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.contact-section .card:hover {
+
+.about-section .card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-section .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(103, 27, 141, 0.25);
 }
 
-.contact-section .card .card-icon {
+.about-section .card .card-icon {
     display: block;
     font-size: 2rem;
     color: var(--ppp-purple) !important;
     margin-bottom: 0.5rem;
 }
 
-.contact-section .card h4 {
+.about-section .card h4 {
     font-family: var(--font-display);
     font-size: 0.8rem;
     font-weight: 700;
@@ -410,18 +410,27 @@ section { position: relative; }
     color: var(--ppp-purple);
 }
 
-.contact-section .card hr {
+.about-section .card hr {
     opacity: 1;
     border-color: var(--ppp-purple);
     border-width: 3px;
     width: 3rem;
 }
 
-.contact-section .card a {
+.about-section .card a {
     color: var(--ppp-purple);
     text-decoration: none;
 }
-.contact-section .card a:hover { text-decoration: underline; }
+.about-section .card a:hover { text-decoration: underline; }
+
+/* ---- Contact section -------------------------------------- */
+.contact-section {
+    padding: 8rem 0 5rem;
+    background-color: var(--ppp-black);
+}
+
+.contact-section .section-title { color: var(--ppp-purple-light); }
+
 
 /* Contact form */
 .contact-form {
